@@ -4237,6 +4237,11 @@
     "prelude-ls" "~1.1.2"
     "type-check" "~0.3.2"
 
+"linear-gradient@^1.0.6":
+  "integrity" "sha512-ogM9DW9Zu9opIri7edn/2qROr2lZRtogkGWs/7aOi9QkKqQhfC3MjvwddWFTF7y4ezRDgYyP7+QlkWIV8kyITA=="
+  "resolved" "https://registry.npmjs.org/linear-gradient/-/linear-gradient-1.0.6.tgz"
+  "version" "1.0.6"
+
 "lines-and-columns@^1.1.6":
   "integrity" "sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA="
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"
@@ -5372,7 +5377,7 @@
   "resolved" "https://registry.npmjs.org/react-native-screens/-/react-native-screens-3.3.0.tgz"
   "version" "3.3.0"
 
-"react-native@*", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.1":
+"react-native@*", "react-native@^0.64.1", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.64.0-rc.0 || 0.0.0-*":
   "integrity" "sha512-jvSj+hNAfwvhaSmxd5KHJ5HidtG0pDXzoH6DaqNpU74g3CmAiA8vuk58B5yx/DYuffGq6PeMniAcwuh3Xp4biQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.64.1.tgz"
   "version" "0.64.1"
