@@ -13,55 +13,59 @@ import { CategoryCard, TrendingCard } from '../components';
 
 const Home = ({ navigation }) => {
 	function renderHeader() {
-		<View
-			style={{
-				flexDirection: 'row',
-				marginHorizontal: SIZES.padding,
-				alignItems: 'center',
-				height: 80,
-			}}>
-			{/* Text */}
-			<View style={{ flex: 1 }}>
-				<Text style={{ color: COLORS.darkGreen, ...FONTS.h2 }}>
-					Hello Spenser
-				</Text>
-				<Text style={{ marginTop: 3, color: COLORS.gray, ...FONTS.body3 }}>
-					What you want to cook today?
-				</Text>
-			</View>
+		return (
+			<View
+				style={{
+					flexDirection: 'row',
+					marginHorizontal: SIZES.padding,
+					alignItems: 'center',
+					height: 80,
+				}}>
+				{/* Text */}
+				<View style={{ flex: 1 }}>
+					<Text style={{ color: COLORS.darkGreen, ...FONTS.h2 }}>
+						Hello Spenser
+					</Text>
+					<Text style={{ marginTop: 3, color: COLORS.gray, ...FONTS.body3 }}>
+						What you want to cook today?
+					</Text>
+				</View>
 
-			{/* Image */}
-			<TouchableOpacity onPress={() => console.log('Profile')}>
-				<Image
-					source={images.profile}
-					style={{ width: 40, height: 40, borderRadius: 20 }}
-				/>
-			</TouchableOpacity>
-		</View>;
+				{/* Image */}
+				<TouchableOpacity onPress={() => console.log('Profile')}>
+					<Image
+						source={images.profile}
+						style={{ width: 40, height: 40, borderRadius: 20 }}
+					/>
+				</TouchableOpacity>
+			</View>
+		);
 	}
 
 	function renderSearchBar() {
-		<View
-			style={{
-				flexDirection: 'row',
-				height: 50,
-				alignItems: 'center',
-				marginHorizontal: SIZES.padding,
-				paddingHorizontal: SIZES.radius,
-				borderRadius: 10,
-				backgroundColor: COLORS.lightGray,
-			}}>
-			<Image
-				source={icons.search}
-				style={{ width: 20, height: 20, tintColor: COLORS.gray }}
-			/>
+		return (
+			<View
+				style={{
+					flexDirection: 'row',
+					height: 50,
+					alignItems: 'center',
+					marginHorizontal: SIZES.padding,
+					paddingHorizontal: SIZES.radius,
+					borderRadius: 10,
+					backgroundColor: COLORS.lightGray,
+				}}>
+				<Image
+					source={icons.search}
+					style={{ width: 20, height: 20, tintColor: COLORS.gray }}
+				/>
 
-			<TextInput
-				style={{ marginLeft: SIZES.radius, ...FONTS.body3 }}
-				placeholderTextColor={COLORS.gray}
-				placeholder='Search Recipes'
-			/>
-		</View>;
+				<TextInput
+					style={{ marginLeft: SIZES.radius, ...FONTS.body3 }}
+					placeholderTextColor={COLORS.gray}
+					placeholder='Search Recipes'
+				/>
+			</View>
+		);
 	}
 
 	function renderSeeRecipeCard() {
@@ -95,7 +99,7 @@ const Home = ({ navigation }) => {
 						onPress={() => console.log('See Recipes')}>
 						<Text
 							style={{
-								colors: COLORS.darkGreen,
+								color: COLORS.darkGreen,
 								textDecorationLine: 'underline',
 								...FONTS.h4,
 							}}>
@@ -123,9 +127,13 @@ const Home = ({ navigation }) => {
 						return (
 							<TrendingCard
 								containerStyle={{ marginLeft: index == 0 ? SIZES.padding : 0 }}
-								recipeItem={item}
-								onPress={() => navigation.navigate('Recipe', { recipe: item })}
+								recipeItem={item.item}
+								onPress={() =>
+									navigation.navigate('Recipe', { recipe: item.item })
+								}
 							/>
+
+							// <Text>Hello {item.name}</Text>
 						);
 					}}
 				/>
@@ -153,6 +161,27 @@ const Home = ({ navigation }) => {
 		);
 	}
 
+	const headerComponent = () => {
+		return (
+			<View>
+				{/* Header */}
+				{renderHeader()}
+
+				{/* Search Bar */}
+				{renderSearchBar()}
+
+				{/* See Recipe Card */}
+				{renderSeeRecipeCard()}
+
+				{/* Trending Section */}
+				{renderTrendingSection()}
+
+				{/* Category Header */}
+				{renderCategoryHeader()}
+			</View>
+		);
+	};
+
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
 			<FlatList
@@ -160,24 +189,7 @@ const Home = ({ navigation }) => {
 				keyExtractor={(item) => `${item.id}`}
 				keyboardDismissMode='on-drag'
 				showsVerticalScrollIndicator={false}
-				ListHeaderComponent={
-					<View>
-						{/* Header */}
-						{renderHeader()}
-
-						{/* Search Bar */}
-						{renderSearchBar()}
-
-						{/* See Recipe Card */}
-						{renderSeeRecipeCard()}
-
-						{/* Trending Section */}
-						{renderTrendingSection()}
-
-						{/* Category Header */}
-						{renderCategoryHeader()}
-					</View>
-				}
+				ListHeaderComponent={headerComponent}
 				renderItem={({ item }) => {
 					return (
 						<CategoryCard

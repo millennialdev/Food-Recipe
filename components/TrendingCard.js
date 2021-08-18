@@ -7,7 +7,7 @@ import {
 	Platform,
 	StyleSheet,
 } from 'react-native';
-import { SIZES, COLORS, FONTS } from '../constants';
+import { SIZES, COLORS, FONTS, icons } from '../constants';
 import { BlurView } from '@react-native-community/blur';
 
 const RecipeCardDetails = ({ recipeItem }) => {
@@ -44,7 +44,7 @@ const RecipeCardDetails = ({ recipeItem }) => {
 			{/* Duration & Serving Sizes */}
 			<Text style={{ color: COLORS.lightGray, ...FONTS.body4 }}>
 				{recipeItem.duration} | {recipeItem.serving}{' '}
-				{recipeItem.serving > 0 ? 'servings' : 'serving'}
+				{recipeItem.serving > 0 ? 'servings' : 'servings'}
 			</Text>
 		</View>
 	);
@@ -80,7 +80,8 @@ const TrendingCard = ({ containerStyle, recipeItem, onPress }) => {
 				marginRight: 20,
 				borderRadius: SIZES.radius,
 				...containerStyle,
-			}}>
+			}}
+			onPress={onPress}>
 			{/* Background Image */}
 			<Image
 				source={recipeItem.image}
