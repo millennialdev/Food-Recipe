@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
 				/>
 
 				<TextInput
-					style={{ marginLeft: SIZES.radius, ...FONTS.body3 }}
+					style={{ marginLeft: SIZES.radius, ...FONTS.body3, width: '100%' }}
 					placeholderTextColor={COLORS.gray}
 					placeholder='Search Recipes'
 				/>
@@ -126,14 +126,14 @@ const Home = ({ navigation }) => {
 					renderItem={(item, index) => {
 						return (
 							<TrendingCard
-								containerStyle={{ marginLeft: index == 0 ? SIZES.padding : 0 }}
+								containerStyle={{
+									marginLeft: item.item.id == 1 ? SIZES.padding : 0,
+								}}
 								recipeItem={item.item}
 								onPress={() =>
 									navigation.navigate('Recipe', { recipe: item.item })
 								}
 							/>
-
-							// <Text>Hello {item.name}</Text>
 						);
 					}}
 				/>

@@ -44,7 +44,7 @@ const RecipeCardDetails = ({ recipeItem }) => {
 			{/* Duration & Serving Sizes */}
 			<Text style={{ color: COLORS.lightGray, ...FONTS.body4 }}>
 				{recipeItem.duration} | {recipeItem.serving}{' '}
-				{recipeItem.serving > 0 ? 'servings' : 'servings'}
+				{recipeItem.serving > 1 ? 'servings' : 'serving'}
 			</Text>
 		</View>
 	);

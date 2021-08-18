@@ -30,7 +30,7 @@ const CategoryCard = ({ containerStyle, categoryItem, onPress }) => {
 				{/* Servings */}
 				<Text style={{ color: COLORS.gray, ...FONTS.body4 }}>
 					{categoryItem.duration} | {categoryItem.serving}{' '}
-					{categoryItem.serving > 1 ? 'Servings' : 'Serving'}
+					{categoryItem.serving > 1 ? 'servings' : 'serving'}
 				</Text>
 			</View>
 		</TouchableOpacity>
